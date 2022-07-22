@@ -1,0 +1,52 @@
+import readchar
+import os
+
+position_x = 0 
+position_y = 1 
+
+
+#posisción del personaje
+#coodenada: X, Y 
+my_position = [4,5]
+
+# Dimensiones del mapa
+MAP_WIDTH = 20 #ancho
+MAP_HEIGHT = 15 #alto 
+
+
+    # CONSTRUNCIÓN DEL MAPA
+estado = True
+while estado: 
+    print('+'+'---' * MAP_WIDTH + '+')
+    for coordinate_y in range(MAP_HEIGHT):
+        print('|', end="")
+        for coordinate_x in range(MAP_WIDTH):
+
+            if my_position[position_x]== coordinate_y and my_position[position_y]==coordinate_x:
+                print(' @ ', end="")
+            else:
+                print('   ', end="")
+
+        print('|')
+    print('+'+'---' * MAP_WIDTH + '+')
+    print(my_position) 
+
+    # controles del juego 
+    # lector de teclas
+    flecha = readchar.readchar().decode()   
+
+    if flecha == 'w':
+        my_position[position_y] -= 1
+    elif flecha == 's':
+        my_position[position_y] += 1
+    elif flecha == 'a':
+        my_position[position_x] -= 1
+    elif flecha == 'd': 
+        my_position[position_x] += 1
+    elif flecha == 'f':
+        estado = false 
+      
+
+
+    
+    os.system('cls')   
